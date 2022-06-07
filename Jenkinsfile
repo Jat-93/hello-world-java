@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 git 'https://github.com/Jat-93/hello-world-java.git'
-                sh './mvnw clean compile'
+                sh 'mvnw clean compile'
             }
         }
     }

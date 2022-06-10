@@ -1,11 +1,20 @@
 pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                git 'https://github.com/Jat-93/hello-world-java.git'
-                sh 'mvn clean compile'
+    agent {
+        label 'test'
+    }
+    
+     stages{
+        stage("clone"){
+            steps{
+             git branch: 'main', credentialsId: 'gituser', url: 'https://github.com/Jat-93/jenkins-docker.git'
+            }
+        }
+        stage("build docker image"){
+            steps{
+                script{
+                     sh 'mvn clean package'
+                    sh 'docker build -t test .'
+                }
             }
         }
     }

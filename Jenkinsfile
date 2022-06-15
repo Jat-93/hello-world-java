@@ -3,11 +3,6 @@ pipeline {
         label 'test'
     }
            stages{
-        stage("clone"){
-            steps{
-             git branch: 'main', credentialsId: 'gituser', url: 'https://github.com/Jat-93/docker.git'
-            }
-        }
         stage("build docker image"){
             steps{
                 script{

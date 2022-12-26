@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label 'test'
-    }
+    agent any
     
       stages{
         stage("clone"){
@@ -13,8 +11,6 @@ pipeline {
             steps{
                 script{
                      sh '''
-                        sudo docker stop test || true && sudo docker rm test || true
-                        sudo docker images test:latest || true && sudo docker rmi -f  test:latest || true
                         sudo docker build -t test .
                         sudo docker run -itd --name test -p 8080:8081 test
                        ''' 

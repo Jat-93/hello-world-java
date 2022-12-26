@@ -11,7 +11,7 @@ pipeline {
             steps{
                 script{
                      sh '''
-                        docker build -t .
+                        docker build -t test .
                         docker run -itd --name test -p 8080:8081 
                        ''' 
                 }

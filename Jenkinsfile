@@ -4,7 +4,7 @@ pipeline {
       stages{
         stage("clone"){
             steps{
-             git branch: 'main', credentialsId: 'gituser', url: 'https://github.com/Jat-93/docker.git'
+             git branch: 'main', credentialsId: 'gituser', url: 'https://github.com/Jat-93/hello-world-java.git'
             }
         }
         stage("build docker image"){

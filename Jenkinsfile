@@ -12,7 +12,7 @@ pipeline {
                 script{
                      sh '''
                         docker build -t jat .
-                        docker run -itd --name sample-test -p 8080:8088 jat 
+                        docker run -itd --name sample-test -p 8088:8080 jat 
                        ''' 
                 }
             }
